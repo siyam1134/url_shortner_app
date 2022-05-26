@@ -5,20 +5,27 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+ruby version 2.7.1
+rails version 6.1.5
 
-* System dependencies
+step by step procedure to run the server
 
-* Configuration
+go to the application folder
 
-* Database creation
+1.yarn add package.json
 
-* Database initialization
+2.bundle install
 
-* How to run the test suite
+before moving to point number 3 ensure that the root password is same as your local or prod databse password
 
-* Services (job queues, cache servers, search engines, etc.)
+3.rails db:create
 
-* Deployment instructions
+4. rails db:migrate
 
-* ...
+5. rails s
+
+to run the unit test cases rspec
+
+1. bundle exec ./spec/model/shorten_url_spec.rb - for model file
+
+2. bundle exec ./spec/requests/url_shortens_spec.rb - for controller file
