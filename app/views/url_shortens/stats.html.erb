@@ -1,0 +1,14 @@
+<h2>Analytics</h2>
+<%@urls.each do |url|%>
+    <%= url.original_url%>
+    <br>
+    <a href="<%=redirect_to_path(:id=>url.id) %>"><%= url.short_url%></a>
+    <br>
+    <label>Total Clicks: </label>
+    <%= url.total_clicks%>
+    <br>
+    <label>Top Countries: </label>
+    <%= url.countries%>
+    <br>
+    <hr>
+<%end%>

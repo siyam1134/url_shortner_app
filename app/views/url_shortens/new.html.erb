@@ -1,0 +1,37 @@
+<script>
+function isUrlValid(userInput) {
+    var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    if(res == null)
+        return false;
+    else
+        return true;
+}
+function shorten_function() {
+    if (isUrlValid($("#input_value").val())){
+        $.ajax({
+            url: '/url_shortens/get_url',
+            data: {url: $('#input_value').val()},
+            error: function() {
+                $('#info').html('<p>Please check it is a valid url</p>');
+            },
+            success: function(data) {
+                $("#info").hide();
+                $('#shortened_url').html('<h4>Your Shortned url is</h4><a href='+data.original_string+'>'+data.string+'</a>')
+            },
+            type: 'POST'
+        })
+    }
+    else{
+        $('#info').html('<p>Please check it is a valid url</p>');
+    }
+}
+</script>
+<h2>Welcome to localhost:3000</h2>
+<div id="info">
+</div>
+<label>Please enter your url below:</label>
+<input type="text" id="input_value">
+<button onclick="shorten_function()">Shorten</button>
+
+<div id="shortened_url">
+</div>
