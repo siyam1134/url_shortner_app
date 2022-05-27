@@ -16,7 +16,7 @@ go to the application folder
 
 2.bundle install
 
-before moving to point number 3 ensure that the root password is same as your local or prod databse password
+before moving to point number 3 ensure that the root password is same as your local or prod database password in database.yml file
 
 3.rails db:create
 
